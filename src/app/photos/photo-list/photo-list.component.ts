@@ -11,6 +11,7 @@ import { PhotoService } from '../photo/photo.service';
 export class PhotoListComponent implements OnInit {
 
   photos:Photo[] = [];
+  filter: string = '';
 
   constructor(private photoService: PhotoService,
     private activatedRoute: ActivatedRoute) { }
@@ -21,4 +22,10 @@ export class PhotoListComponent implements OnInit {
     photos => {console.log(userName); this.photos = photos});
   }
 
+  onKeyUp(target : any) {
+    if(target instanceof EventTarget) {
+      var elemento = target as HTMLInputElement;
+      this.filter = elemento.value;
+    }
+  }
 }
