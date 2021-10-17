@@ -3,5 +3,5 @@
         <input class="rounded" type="search" placeholder="Search.." autofocus (keyup)="onKeyUp($event.target)">
     </form>
 </div>
-{{filter}}
-<ap-photos [photos]="photos"></ap-photos>
+
+<ap-photos [photos]="photos | filterByDescription: filter"></ap-photos>
